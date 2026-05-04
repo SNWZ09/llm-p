@@ -12,6 +12,7 @@ router = APIRouter(prefix='/chat', tags=['chat'])
 
 #эндпоинт /chat
 #принимаем вопрос, проверяем токен
+@router.post("", response_model=ChatResponse)
 async def ask_chat(
     request: ChatRequest,
     user_id: int = Depends(get_current_user_id),

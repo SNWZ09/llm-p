@@ -42,5 +42,5 @@ class ChatMessageRepository:
     #что-то возвращаться, поэтому напишу None
     async def delete_history(self, user_id: int) -> None:
         statement = delete(ChatMessage).where(ChatMessage.user_id == user_id)
+        await self._session.execute(statement)
         await self._session.commit()
-        await self._session.refresh(statement)

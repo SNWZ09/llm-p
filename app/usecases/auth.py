@@ -18,7 +18,7 @@ class AuthUseCase:
         #можно ли эту проверку было сделать в if?
         #или конструкция не позволяет и обязательно нужно сначала
         #присвоить эту проверку переменной existing_user?
-        existing_user = await self.user_repo.get_by_email(email)
+        existing_user = await self._user_repo.get_by_email(email)
         if existing_user:
             raise ConflictError('Пользователь с таким email уже зарегистрирован')
         
@@ -40,7 +40,7 @@ class AuthUseCase:
         
     #метод получения профиля по user_id
     async def get_profile(self, user_id:int) -> User:
-        user = await self.user_repo.get_by_id(user_id)
+        user = await self._user_repo.get_by_id(user_id)
         
         #если не нашелся - выкидываем ошибку
         if not user:

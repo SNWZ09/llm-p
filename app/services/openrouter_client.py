@@ -28,7 +28,7 @@ class OpenRouterClient:
         #тело запроса
         #(модель и история сообщений)
         payload = {
-            'model': settings.openrouter_model,
+            'model': 'stepfun/step-3.5-flash:free',
             'messages': messages
         }
         
@@ -49,7 +49,9 @@ class OpenRouterClient:
         
         #подсмотрел нужное значение status_code
         if response.status_code != 200:
-            raise ExternalServiceError('Ошибка внешнего сервиса')
+            print("=== КЛЮЧ ИЗ НАСТРОЕК ===", settings.openrouter_api_key)
+            print("=== ОТВЕТ ОТ СЕРВЕРА ===", response.text)
+            raise ExternalServiceError(f'Ошибка внешнего сервиса {response.text}')
             
         data = response.json()
         

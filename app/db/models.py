@@ -33,7 +33,7 @@ class User(Base):
     #что оно осталось “сиротой”, 
     #оно тоже удалится.
     #(взято из урока на платформе)
-    messages: Mapped[list['ChatMessage']] =  relationship(back_populates='ChatMessage', cascade='all, delete-orphan')
+    messages: Mapped[list['ChatMessage']] = relationship('ChatMessage', back_populates='user', cascade='all, delete-orphan')
     
 #теперь опишем сообщения чата
 class ChatMessage(Base):
