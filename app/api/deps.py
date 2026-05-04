@@ -15,7 +15,7 @@ from app.usecases.auth import AuthUseCase
 from app.usecases.chat import ChatUseCase
 
 #сначала сделаем кнопку авторизации
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl='/auth/login')
 
 #метод создания и закрытия сессии
 async def get_session():
