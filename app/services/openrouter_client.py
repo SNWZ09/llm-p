@@ -49,8 +49,6 @@ class OpenRouterClient:
         
         #подсмотрел нужное значение status_code
         if response.status_code != 200:
-            print("=== КЛЮЧ ИЗ НАСТРОЕК ===", settings.openrouter_api_key)
-            print("=== ОТВЕТ ОТ СЕРВЕРА ===", response.text)
             raise ExternalServiceError(f'Ошибка внешнего сервиса {response.text}')
             
         data = response.json()
