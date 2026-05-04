@@ -3,20 +3,20 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 #класс для управления настройками приложения 
 class Settings(BaseSettings):
-    APP_NAME: str
-    ENV: str
+    app_name: str
+    env: str
 
-    JWT_SECRET: str
-    JWT_ALG: str
-    ACCESS_TOKEN_EXPIRE_MINUTES: int
+    jwt_secret: str
+    jwt_alg: str
+    access_token_expire_minutes: int
 
-    SQLITE_PATH: str
+    sqlite_path: str
 
-    OPENROUTER_API_KEY: str
-    OPENROUTER_BASE_URL: str
-    OPENROUTER_MODEL: str
-    OPENROUTER_SITE_URL: str
-    OPENROUTER_APP_NAME: str
+    openrouter_api_key: str
+    openrouter_base_url: str
+    openrouter_model: str
+    openrouter_site_url: str
+    openrouter_app_name: str
     
     #указываем, что переменные нужно читать из файла .env
     model_config = SettingsConfigDict(env_file = '.env', env_file_encoding = 'utf-8')

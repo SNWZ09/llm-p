@@ -7,7 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 #импорт ORM-модели сообщения
 from app.db.models import ChatMessage
 
-class UserRepository:
+class ChatMessageRepository:
     #'Репозиторий должен принимать AsyncSession
     #в конструктор и хранить его как приватное поле.'
     def __init__(self, session: AsyncSession):

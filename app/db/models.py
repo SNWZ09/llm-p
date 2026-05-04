@@ -42,7 +42,7 @@ class ChatMessage(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     
     #опишем внешний ключ user_id
-    user_id: Mapped[int] = mapped_column(ForeignKey('user_id'), nullable=False)
+    user_id: Mapped[int] = mapped_column(ForeignKey('users.id'), nullable=False)
     role: Mapped[str] = mapped_column(String, nullable=False)
     
     #текст сообщения и время его создания
