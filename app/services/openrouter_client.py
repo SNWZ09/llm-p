@@ -3,7 +3,7 @@
 import httpx
 
 #импорт настроек и ошибки внешнего сервиса
-'должен собирать заголовки Authorization, 
+#'должен собирать заголовки Authorization, 
 #HTTP-Referer и X-Title, 
 #которые берутся из настроек...
 #Если OpenRouter вернул код ошибки,
@@ -53,7 +53,7 @@ class OpenRouterClient:
             
         data = response.json()
         
-        return result['choices']['message']['content']
+        return data['choices']['message']['content']
         
         
     

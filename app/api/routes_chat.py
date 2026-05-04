@@ -6,7 +6,6 @@ from app.schemas.chat import ChatRequest, ChatResponse
 from app.usecases.chat import ChatUseCase
 from app.api.deps import get_chat_usecase, get_current_user_id
 from app.core.errors import ExternalServiceError
-from app.db.models import ChatMessage
 
 #создаем роутер с тегом chat
 router = APIRouter(prefix='/chat', tags=['chat'])

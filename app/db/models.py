@@ -4,7 +4,7 @@
 #модель сообщения чата ChatMessage с полями:
 #id, user_id, role, content, created_at.
 
-from datetime import datetime, timezone
+from datetime import datetime
 from sqlalchemy import Integer, String, ForeignKey, DateTime, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base

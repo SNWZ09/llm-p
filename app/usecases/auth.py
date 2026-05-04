@@ -19,7 +19,7 @@ class AuthUseCase:
         #или конструкция не позволяет и обязательно нужно сначала
         #присвоить эту проверку переменной existing_user?
         existing_user = await self.user_repo.get_by_email(email)
-        if existing user:
+        if existing_user:
             raise ConflictError('Пользователь с таким email уже зарегистрирован')
         
         hashed_pswd = hash_password(password)
@@ -28,7 +28,7 @@ class AuthUseCase:
     #метод логина существующего юзера
     async def login(self, email: str, password: str) -> str:
         #ищем по эл. адресу
-        user = await self.user_repo.get_by_email(email)
+        user = await self._user_repo.get_by_email(email)
         if not user:
             raise UnauthorizedError('Неверный email или пароль')
         
@@ -36,7 +36,7 @@ class AuthUseCase:
         if not verify_password(password, user.password_hash):
             raise UnauthorizedError('Неверный email или пароль')
             
-        return create_access_token(user_id = user.id, role = user.role
+        return create_access_token(user_id = user.id, role = user.role)
         
     #метод получения профиля по user_id
     async def get_profile(self, user_id:int) -> User:

@@ -18,7 +18,7 @@ class ChatRequest(BaseModel):
     max_history: int = Field(10, ge = 0, description = 'Сколько сообщений учитывать')
     
     #креативность
-    temperature: float = Field(0.5m ge = 0.0, le = 2.0, description = 'Креативность ответов'
+    temperature: float = Field(0.5, ge = 0.0, le = 2.0, description = 'Креативность ответов')
 
 #схема ответа нейросети
 #тут просто возвращаем ответ
